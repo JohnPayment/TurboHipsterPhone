@@ -1,0 +1,124 @@
+# Checks and sends
+Awake{Awake Check}.AwakeCheck{Enable}|3|0|1
+Awake{Awake Check}.AwakeCheckInterval{Check Interval}|1|3600|1
+Awake{Awake Check}.AwakeFailureReporting{Reporting Mode}|4|3|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+Awake{Awake Check}.AwakeCheckAudioMessage{Audio Message}|2|/dwlpack/icoanim/pttbeep/alarm2.wav|1
+Awake{Awake Check}.AwakeCheckMessageInterval{Message Duration}|1|10|1
+Battery{Battery Check}.BatteryCheck{Enable}|3|0|1
+Battery{Battery Check}.BatteryCheckInterval{Check Interval}|1|600|1
+Battery{Battery Check}.BatteryFailureReporting{Reporting Mode}|4|1|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+Battery{Battery Check}.BatteryFailureThreshold{Failure Threshold}|1|20|1
+E2E{End to End Check}.E2ECheck{Enable}|3|0|1
+E2E{End to End Check}.E2ECheckInterval{Check Interval}|1|600|1
+E2E{End to End Check}.E2ETimeout{Timeout}|1|30|1
+E2E{End to End Check}.E2EFailureReporting{Reporting Mode}|4|2|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+GPS{GPS Check}.GPSCheck{Enable}|3|0|1
+GPS{GPS Check}.GPSCheckInterval{Check Interval}|1|600|1
+GPS{GPS Check}.GPSFailureReporting{Reporting Mode}|4|1|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+GSM{GSM Check}.GSMCheck{Enable}|3|0|1
+GSM{GSM Check}.GSMCheckInterval{Check Interval}|1|600|1
+GSM{GSM Check}.GSMFailureReporting{Reporting Mode}|4|1|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+GSM{GSM Check}.GSMFailureThreshold{Failure Threshold}|1|20|1
+GSM{GSM Check}.GSMSignalThreshold{Signal Threshold}|1|20|1
+Health{Send Health}.HealthSend{Enable}|3|0|1
+Health{Send Health}.HealthSendInterval{Send Interval}|1|3600|1
+Health{Send Health}.HealthSendMode{Send Mode}|4|1|1|{Try once, Try later, Send now or later, Send now}
+Health{Send Health}.HealthSendTimeout{Send Timeout}|1|60|1
+Health{Send Health}.HealthSendSuccessReporting{Success Reporting Mode}|4|7|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info, Don't send}
+Health{Send Health}.HealthSendFailureReporting{Failure Reporting Mode}|4|7|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info, Don't send}
+Health{Send Health}.TechnicalCheckAudioMessage{Technical Audio Message}|2|/dwlpack/icoanim/pttbeep/alarm2.wav|1
+Health{Send Health}.TechnicalCheckMessageInterval{Technical Message Interval}|1|600|1  
+Location{Send Location}.LocationSend{Enable}|3|1|1
+Location{Send Location}.LocationSendInterval{Send Interval}|1|600|1
+Location{Send Location}.LocationSendIntervalAlarm{Send Interval During Alarm Mode}|1|600|1
+Location{Send Location}.LocationSendMode{Send Mode}|4|2|1|{Try once, Try later, Send now or later, Send now}
+# Man down
+Mandown{Mandown}.MandownCheckIdle{Enable Idle Check}|3|0|1
+Mandown{Mandown}.MandownCheckTilt{Enable Tilt Check}|3|0|1
+Mandown{Mandown}.MandownCheckImpact{Enable Impact Check}|3|1|1
+Mandown{Mandown}.MandownCheckFall{Enable Fall Check}|3|0|1
+Mandown{Mandown}.MandownTextMessage{Text Message}|2| |1
+Mandown{Mandown}.MandownAudioMessage{Audio Message}|2|/dwlpack/icoanim/pttbeep/alarm2.wav|1
+Mandown{Mandown}.MandownMessageInterval{Message Duration}|1|600|1
+Mandown{Mandown}.MandownReporting{Reporting Mode}|4|3|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+Mandown{Mandown}.MandownIdleThreshold{Idle Threshold}|1|5|1
+Mandown{Mandown}.MandownIdleTimeout{Idle Timeout}|1|10|1
+Mandown{Mandown}.MandownTiltThreshold{Tilt Threshold}|1|20|1
+Mandown{Mandown}.MandownTiltTimeout{Tilt Timeout}|1|10|1
+Mandown{Mandown}.MandownImpactThreshold{Impact Threshold}|1|80|1
+Mandown{Mandown}.MandownImpactTimeout{Impact Timeout}|1|10|1
+Mandown{Mandown}.MandownFallThreshold{Fall Threshold}|1|3|1
+Mandown{Mandown}.MandownFallTimeout{Fall Timeout}|1|100|1
+Mandown{Mandown}.MandownStartTime{Mandown start time}|1|2400|1
+Mandown{Mandown}.MandownStopTime{Mandown stop time}|1|2400|1
+Mandown{Mandown}.MandownStopMode{Mandown stop mode}|1|2|0
+
+# Manual alarm
+ManualAlarm{Manual Alarm}.ManualAlarm{Enable}|3|1|1
+ManualAlarm{Manual Alarm}.ManualAlarmDuration{Manual Alarm Duration}|1|5|0
+ManualAlarm{Manual Alarm}.ManualAlarmReporting{Reporting Mode}|4|4|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+# Amber key alarm
+AmberKeyAlarm{Amber Key Alarm}.AmberKeyAlarm{Enable}|3|0|1
+AmberKeyAlarm{Amber Key Alarm}.AmberKeyAlarmReporting{Reporting Mode}|4|5|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+# Green key alarm
+GreenKeyAlarm{Green Key Alarm}.GreenKeyAlarm{Enable}|3|0|1
+GreenKeyAlarm{Green Key Alarm}.GreenKeyAlarmReporting{Reporting Mode}|4|5|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+# Number key alarm
+NumberKeyAlarm{Number Key Alarm}.NumberKeyAlarm{Enable}|3|0|1
+NumberKeyAlarm{Number Key Alarm}.NumberKeyAlarmReporting{Reporting Mode}|4|5|1|{Local warning, Local alarm, Remote alarm, Alarm with call, Silent alarm, Remote report, Remote info}
+# Location
+Location{Location}.GPSUpdateInterval{GPS Update Interval}|1|120|1
+Location{Location}.LocationSource{Location Source}|4|0|1|{GPS, Cell ID}
+Location{Location}.CurrentLocationTimeout{GPS Fix Timeout}|1|30|1
+Location{Location}.TrackingStartTime{Tracking start time}|1|2400|1
+Location{Location}.TrackingStopTime{Tracking stop time}|1|2400|1
+Location{Location}.TrackingStopMode{Tracking stop mode}|1|1|0
+
+# Reporting
+Reporting{Reporting}.LocalWarningDuration{Local Warning Duration}|1|5|1
+Reporting{Reporting}.LocalAlarmDuration{Local Alarm Duration}|1|10|1
+Reporting{Reporting}.LongBeepInterval{Long Beep Interval}|1|3|1
+Reporting{Reporting}.ShortBeepInterval{Short Beep Interval}|1|10|1
+Reporting{Reporting}.LongBeepAudioMessage{Long Beep Audio Message}|2|/dwlpack/icoanim/pttbeep/alarm2.wav|1
+Reporting{Reporting}.ShortBeepAudioMessage{Short Beep Audio Message}|2|/dwlpack/icoanim/pttbeep/alarm2.wav|1
+Reporting{Reporting}.ERCNumbers{ERC Numbers}|2| |1
+Reporting{Reporting}.ERCTimeout{ERC Timeout}|1|30|1
+Reporting{Reporting}.SendNumberToERC{Send Number to ERC}|3|0|0
+Reporting{Reporting}.EnableCLIP{Enable CLIP}|3|1|1
+Reporting{Reporting}.UseSpeaker{Use Speaker Mode}|3|1|1
+Reporting{Reporting}.UseVibrator{Use Vibrator}|3|1|1
+Reporting{Reporting}.UseVibrationInCall{Vibrate During Call}|3|1|1
+Reporting{Reporting}.VibrationInterval{Vibration Interval}|1|30|1
+Reporting{Reporting}.LimitedReports{Suppress All Extra Reports}|3|0|1
+# Transport
+Transport{Transport}.HttpUrl{Server HTTP URL}|2| |1
+Transport{Transport}.SmsHost{Server SMS Number}|2| |1
+Transport{Transport}.SendVia{Server Interaction Mode}|4|2|1|{HTTP, SMS, Either, None}
+Transport{Transport}.QueueSize{Queue Size}|1|40|0
+Transport{Transport}.Queue50Reporting{Queue 50 Percent Full Reporting Mode}|4|1|1|{Local warning, Local alarm}
+Transport{Transport}.Queue80Reporting{Queue 80 Percent Full Reporting Mode}|4|2|1|{Local warning, Local alarm}
+Transport{Transport}.Queue100Reporting{Queue 100 Percent Full Reporting Mode}|4|2|1|{Local warning, Local alarm}
+Transport{Transport}.QueueFlushInterval{Queue Flush Interval}|1|300|1
+# Miscellaneous
+Others{Others}.UserId{User ID}|1| |0
+Others{Others}.SystemName{System Name}|2| |0
+Others{Others}.UserName{User Name}|2| |0
+General{General}.ConfigurationLocked{Configuration Locked}|3|0|0
+General{General}.EncryptionKey{Encryption Key}|2|disabled|0
+General{General}.MenuEnabled{Menu Enabled}|3|1|0
+General{General}.PhoneStatus{Phone Status}|1|0|0
+General{General}.ERCTryingActive{ERC Trying}|1|0|0
+General{General}.ERCCurrentMode{ERC Speaker Mode}|1|0|0
+DataVersion{Data Version}.DataVersionPublic{Data Version Public}|1|0|0
+DataVersion{Data Version}.DataVersionSD{Data Version SD}|1|0|0
+LoneWorker{LoneWorker}.LoneWorkerMode{LoneWorker Mode}|1|0|0
+LoneWorker{LoneWorker}.LoneWorkerMinMode{LoneWorker MinMode}|1|1|0
+LoneWorker{LoneWorker}.PreviousMode{Previous Mode}|1|0|0
+LoneWorker{LoneWorker}.LoneWorkerAutoOn{LoneWorker Auto On}|3|0|0
+LoneWorker{LoneWorker}.LoneWorkerAutoMode{LoneWorker Auto Mode}|1|3|0
+LoneWorker{LoneWorker}.LoneWorkerStateChange{LoneWorker State Change}|1|2|0
+LoneWorker{LoneWorker}.LoneWorkerStartTime{LoneWorker Start Time}|1|80000|0
+LoneWorker{LoneWorker}.LoneWorkerStopTime{LoneWorker Stop Time}|1|170000|0
+LoneWorker{LoneWorker}.LoneWorkerOffDays{LoneWorker Off Days}|1|1000001|0
+LoneWorker{LoneWorker}.LoneWorkerOffDates{LoneWorker Off Dates}|2| |0
+LoneWorker(LoneWorker}.LogLevel{Log Level}|1|0|0

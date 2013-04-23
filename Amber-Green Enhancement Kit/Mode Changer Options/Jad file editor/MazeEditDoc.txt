@@ -1,0 +1,145 @@
+MAZEEDITDOC.TXT				May - 30 , 2001 / PM  
+
+MENU:
+Is inactive at the moment, the only thing that works is the "Exit" command
+in the  "File"-Menu.
+Load / Save should work, too, but is fixed to load/save a file named
+"level2.maz". The possibilty for an input of the level, that should be
+loaded/saved is to be added in the next version.
+
+MAP-VIEW:
+In the Map-view window, the right mouse key places a solid wall, and the
+left mouse button removes a solid wall (should later put the kind of wall taken
+from the menu.
+
+The map is fixed to 32 by 32 tiles. But the code is made this way, that it can
+be extendend anytime.
+
+The rectangle under the map view holds the actual window about the camera
+position and angle.
+
+
+KEYS:
+The keys are used to move the big Edit-View:
+
+KEYPAD PLUS:   Zoom in
+KEYPAD MINUS:  Zoom out
+KEYPAD KEY1:   Camera rotate right
+KEYPAD KEY3:   Camera rotate left
+KEYPAD PERIOD: Switches camera mode between moving camera around viewpoint and
+	       turning camer around viewpoint.
+               (Doesn't work properly in this version) 	
+KEY PAGEUP     Moves the Camera up
+KEY PAGEDOWN:  Moves the camera down.
+
+
+The Camera always rotates around the point in the middle of the big edit view.
+
+The keys that are used in the Map-view
+KEYPAD KEY8: Move Edit cursor up
+KEYPAD KEY2: Move Edit cursor down
+KEYPAD KEY4: Move Edit cursor left
+KEYPAD KEY6: Move Edit cursor right
+
+Notice:
+
+There are to stairs as well some animated billboard-rectangles just tho show
+some further ideas. The doors in the given example map is for the same intention,
+too.
+
+
+-----------------------------------
+CHANGES FROM VERSION V 0.1 TO V0.11
+-----------------------------------
+
+TEXTURE-description file format , Ending "JAT" ("JA"d "T"ecorations)
+
+This files hold the data for wall/bottom textures including measures of the
+wal /bottom rectangles.
+Positive Z points upward from bottom to top. Bottom of wall and level of bottom
+are at Z = 0. The wall has to look to the games NORTH:
+
+Maximum size of a wall is:
+
+Bottom of wall: Z =   0.0
+Top of Wall     Z =  92.0
+Left:		Y = +64.0
+Right:		Y = -64.0
+Into the wall:  X = > 0.0 AND <  32.0
+Off the wall:	X = < 0.0 AND > -32.0
+
+The textures are internally enumerated as they are read. This number can be used
+in walldescriptors. Because of that, the following numbers are standard:
+	0: Bottom
+        1: Wallside type 1
+        2: Wallside type 2
+        3: Doorwall (just a dummy)
+        4: Stair up
+        5: Stair down
+
+Header
+"JAD"	-> Any file for jad starts with this three chars
+"TXD"	-> It's a texture description.
+
+
+0x00 0x0B  -> Two Bytes for JAD-Version: Hi version number / Lo version number
+	      actual 0 /Binary. Actual Version Number "0.11"
+0x00 0x00  -> File size (lo / hi byte)
+32 Bytes   Name of texture file, including File-Ending, actually only
+	   "BMP"-Files are supported.
+
+           The description itself
+
+
+0xFF	   --> TEXFILE_CMDCOUNT:
+	        Start of a description block. Almost every opengl display-
+	       command is supported:
+0x00	   --> One byte: Count of commands belonging o this descriptor
+	       (max. 16 --> "DISPLAY_MAXCMD")
+
+	   0xFE	-> e.g "TEXFILE_TRIANGLESTRIP"
+           0x00	-> Count of vertices belonging to this command.
+
+           	typedef struct {
+               	    signed   char x,y,z; /* The vertice itself:  -127..+127 */
+               	    unsigned char u,v;	 /* The texture indices: 0..255     */
+           	} JADFILEVERTEX;
+
+0xFF       --> End sign
+0x00	   --> Zero commands means end of file
+
+
+Mixed things:
+- Second counter for the demo of the implemented time-function.
+- Maze size fixed to 32 x 32
+- Display function adjusted for new Texture-Description file format
+- File loader extended with an example for Texture-Description.
+
+-----------------------------------
+CHANGES FROM VERSION V 0.11 TO V0.12
+-----------------------------------
+
+Added a menu for the choice between 10 different levels. If a non existing level 
+is to be loaded just nothing happens. 
+
+Now, if a key stays pressed, the command is repeated (e. g. if you press the CAMERA-rotate 
+button an let it pressed, the 3D-View is rotating.  
+
+
+- Fixed a bug in displaying stairs (textured data at all).
+- Fixed a bug that only the doors looking north were displayed
+- Fixed a bug that only the stairs looking north were displayed
+ 
+MenuCode:
+  Extended to have at maximum 32 menu-levels. The keys are translated by "jadinput" 
+and are handled by the callback given when installing the menu-level.
+
+
+
+
+
+ 
+ 
+
+
+

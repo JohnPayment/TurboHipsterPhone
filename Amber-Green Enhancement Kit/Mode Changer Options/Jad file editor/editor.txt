@@ -1,0 +1,162 @@
+MAZEMAN.TXT
+June 2001, MP
+
+I commented the hell out of the code, but here is a
+
+Short documentation of the JAD-EDITORM data structures
+
+with some comments added what ideas I had in mind when I created them.
+
+The MAZE itself:
+----------------
+
+struct {
+    short int xsize,
+    	      ysize;				
+    short int wallsize;
+    unsigned char flags[8];		        /* 64 Flags to set / reset / ask */
+    char          tiles[MAZE_MAXTILECOUNT][4];  /* The Maze itself 	         */
+} Maze
+
+A Mazetile has four sides, each with a number between 0 and 255. Each number
+is an index into an array of structures called WALLINFO.
+
+For the wallinfo, there are some following (bit-)constants defined ("maze.h"):
+
+#define MAZESIZE     32		/* Power of two				*/
+#define MINWALLTYPE  25 	/* 0..2 reserved for Standard-Tiles	*/
+				/* 3..23: Reserved for 2 Types of doors */
+				/* with and without doorknob		*/
+                                /* 24: Stair up				*/
+                                /* 25: Stair down			*/
+#define MAXWALLTYPE 127		/* Special Tile types 241..254		*/
+#define MAXWALL	    127
+
+Flags for triggering Events begin with "EV_". At the moment just an idea. The
+intention is that the game-designer can script events, that occur if something
+or somebody touches or enters the tile.
+Also it's thougt of having a difference between entering and leaving a tile
+(for example: a bottom plate)
+
+DOORTYPES are another idea. Having in mind, that it's easy to add a door, if it's
+standard functions are hard coded. I think about endig up with three script
+procedures for the doors:
+	OPENDOOR(x,y);		Opening a door at tile at position, if it's
+        			already open, nothing happens
+	CLOSEDOOR(x,y);		Same as above, but closing
+        MOVEDOOR(x,y);		An open door will start to close. Closed doors
+				start to open. Already moving doors change
+                                direction of moving.
+
+Another idea. 4 Slots for a maximum of four different types of doors.
+
+Some "Standard-Events" belonging to the walls (tiles)
+
+
+"WF_"-Flags: To have a shortcut checking out if a tile can be passed. And by
+             which object it can be passed, if at all.
+
+/* Wall-Types: Who can pass */
+
+"MAZEFLAG_": I thougt about, that some flags should be possibe to set or clear
+             as a help to keep track of events in the maze. To make it intependent
+             for the caller, I created a function. Thought to be called by a
+             script.
+
+
+
+typedef struct {
+    unsigned char num;		/*    */
+    				/* else number of Walltexture to use 	     */
+    unsigned char dec;		/* Number of "Decoration 		     */
+    unsigned char map;		/* Number of "Map"-picture		     */
+    unsigned char passbits;	/* Which kind of Wall, walk through is 	     */
+    				/* possible and so on "WP_..."		     */
+    unsigned char typebits;	/* Which kind of wall "WT_..."		     */
+    unsigned char evbits;	/* Event is triggered by "EV_..."	     */
+    unsigned char decev;	/* "Visible" Decoration-Event like "switch"
+    				   of a Knob and so on "DEV_..."	     */
+    unsigned int  evnum;	/* Number of Event/script triggered	     */
+    unsigned char fill[5];	/* Fill up to 16 Bytes			     */
+} WALLINFO;
+
+A short description of the fields of WALLINFO structure:
+
+	num: Type of texture to display as wall, 0: Bottom.
+
+        dec: A possibilty to add additional texture/model information to dis-
+        play together with the tile (examples: A torch at the wall, a pit in
+        bottom tile).
+
+        map: Number of a map picture (or just a number for a switch statement
+             as used in the "jadinput.c"-file.
+
+        passbits: "WF_" how described as constants.
+        evbits:	  "EV_" What object can trigger an event, if any is attached
+        	  to the walldescriptor.
+
+        evnum:	  Thought tho carry an index into a list of entry points for
+        	  scripted code in memory.
+
+        fill:	  As named. To align to a four byte boundary.
+
+
+The File-Format. I think this is explained enough in the code.
+
+
+THE MENU:
+---------
+
+If a menu is opened, the display-data is added to the menu-list. I think it
+isn't too hard to figure out, how it works.
+
+The menupoints are inactive (save the "FILE SAVE" and "FILE LOAD" command.
+I added the menupoints I plan to add and - I think - are needed to make it a 
+really useful editor.
+
+
+THE DISPLAY
+-----------
+
+typedef struct {
+    unsigned char wall;		/* Type of tile 0: Bottom, > 0 , Wall  	     */
+    unsigned char dec;		/* Number of "Decoration" 		     */
+    				/* 120..127: Specials			     */
+                                /* 120: "Teleport" / 121: "Magic"	     */
+                                /* 122: "Door"				     */
+                                /* 128: Selected rectangle in view	     */
+} DISPLAYTILESIDE;
+
+typedef struct {
+    int flags;			/* Flags: Info about what to display 	     */
+    int number;			/* Number of tile, for visibility tests	     */
+    /* Tile-Description */
+    DISPLAYTILESIDE side[4];    /* North, East, South, West 		     */
+    /* Edit-Info */
+    int direction;		/* 0..3 or -1 for none if TILE_ISEDIT	     */
+    /* Thrown things */
+} DISPLAYTILE;		    	/* Makes up the Display-List		     */
+
+An array[81] of DISPLAYTILES forms a kind of Displaylist. This way, there is
+no problem to change internals in the display-code itself, if the data format
+elsewhere should change.
+
+
+HOW IT WORKS
+------------
+The camera always look into the middle of the displayed rectangle of tiles.
+Walls can be removed with a left click into the Map-Window. A right click
+adds a wall.
+
+Changes in the maze window are immdiatly displayed in the 3D-window.
+
+The "Animated Decorations" are added just for show. And as an example for
+"decoration" that could be added.
+
+
+TODO
+----
+There is no possibility to edit in the 3D-Window. But that is needed, if a
+designer should easy add whatever to each side of a wall.
+
+A possibility to add the textures to the wall while editing.
