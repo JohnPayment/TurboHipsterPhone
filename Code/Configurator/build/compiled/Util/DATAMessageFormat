@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<safetyline_user 
+xmlns="http://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3schools.com safetyline.xsd">
+  
+	<!--User login credentials-->
+	<login>
+		<company_id>
+      </company_id>
+		<user_id>
+      </user_id>
+		<password>
+      </password>
+	</login>
+	
+	<!--Ok command with Wave voice attachment-->
+	<safetyline_command>
+		<report_data>
+		</report_data>
+	</safetyline_command>
+
+	<!--Get the current status of the user-->
+	<safetyline_command>
+		<get_status/>
+	</safetyline_command>
+
+	<!--Get the next check in time of the user-->
+	<safetyline_command>
+		<get_next/>
+	</safetyline_command>
+
+	<!--Get the user name-->
+	<safetyline_command>
+		<get_user_name/>
+	</safetyline_command>
+
+</safetyline_user>
