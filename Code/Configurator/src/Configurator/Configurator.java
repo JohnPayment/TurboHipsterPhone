@@ -111,12 +111,14 @@ public class Configurator extends MIDlet
 
 		String[] settingsItemgs = new String[]
 		{
+			/*
 			str[Messages.TOGGLE] + " " + str[Messages.MANDOWN] + ": " + str[(settingStruct.Mandown) ?
 																			Messages.ON :
 																			Messages.OFF],
 			str[Messages.TOGGLE] + " " + str[Messages.FALL_DETECTION] + ": " + str[(settingStruct.Fall ?
 																					Messages.ON :
 																					Messages.OFF)],
+			*/
 			str[Messages.LOGIN],
 			str[Messages.LANGUAGES]
 		};
