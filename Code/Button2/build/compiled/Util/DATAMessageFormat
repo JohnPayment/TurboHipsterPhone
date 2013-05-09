@@ -15,10 +15,6 @@ xmlns="http://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-ins
 	<!--Ok command with plain text message-->
 	<safetyline_command>
             <gps>
-                <latitude> 
-                </latitude>
-                <longitude> 
-                </longitude>
             </gps>
 	</safetyline_command>
 
