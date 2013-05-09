@@ -176,6 +176,8 @@ public class UI
                 reader.readFileFromResource("END_MONITORINGMessageFormat");
                 break;
             case NetworkRequest.DATA_MESSAGE:
+                reader.readFileFromResource("DATAMessageFormat");
+                break;
             case NetworkRequest.OTHER_MESSAGE:
                 throw new UnsupportedOperationException();
         }
