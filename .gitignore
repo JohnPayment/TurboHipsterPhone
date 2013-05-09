@@ -2,6 +2,11 @@
 ###################
 *.jar
 *.jad
+*.class
+Code/Button2/build/
+Code/Button3/build/
+Code/Configurator/build/
+Code/TsunamiSolutionsLibrary/build/
 
 # Packages #
 ############

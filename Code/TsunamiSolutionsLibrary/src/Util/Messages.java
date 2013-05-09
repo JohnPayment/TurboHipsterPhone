@@ -98,4 +98,7 @@ public class Messages
     
     /** NOT_INITIALIZED message code. Usage: Strings.getMessage(Messages.NOT_INITIALIZED); */
     public static final int NOT_INITIALIZED = 30;
+    
+    /** BAD_CREDENTIALS message code. Usage: Strings.getMessage(Messages.BAD_CREDENTIALS); */
+    public static final int BAD_CREDENTIALS = 31;
 }

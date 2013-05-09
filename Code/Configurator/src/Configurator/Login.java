@@ -147,7 +147,7 @@ public class Login extends Form
 					//if successfully saved, send message to saftyline servers.
 					String response = Sender.send(null, NetworkRequest.OK_MESSAGE);
 					//then popup message with result.
-					pop = new Popup(m, (response.equals("OK"))
+                                        pop = new Popup(m, (response.equals("OK"))
 						? Strings.getMessage(Messages.RECEIVED)
 						: response, true, m.getLoginScreen());
 					
