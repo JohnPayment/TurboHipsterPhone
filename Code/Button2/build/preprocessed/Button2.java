@@ -13,44 +13,49 @@ import javax.microedition.midlet.MIDlet;
  *
  * @author Team Cirno
  */
-public class Button2
-        extends MIDlet
+public class Button2 extends MIDlet
 {
-    /**
-     * Constant string representing the connection being OK.
-     */
-    private static final String OK = "OK"; 
-    
-    /**
-     * When application is launched, startApp will be invoked.
-     */
-    public void startApp()
-    {
-        String response;
-        Popup p;
-        Display disp = Display.getDisplay(this);
-        
-        try{
-            String[] str = Strings.getAllMessages();
-            
-            p = new Popup(this, str[Messages.SENDING], false, null);
-            disp.setCurrent(p);
-            response = Sender.send(null, NetworkRequest.OK_MESSAGE);
-            p = new Popup(this, (response.equals(OK)) ? str[Messages.RECEIVED] : response, true, null);
-            disp.setCurrent(p);
-        }catch(Exception e){
-           //most likely to happen if there is an error in Strings.getAllMessages()
-           Popup pop = new Popup(this, "Please run configurator first.", true, null); 
-           disp.setCurrent(pop);
-        }
-    }
+	/**
+	 * Constant string representing the connection being OK.
+	 */
+	private static final String OK = "OK"; 
 
-    public void pauseApp()
-    {
-    }
+	/**
+	 * When application is launched, startApp will be invoked.
+	 */
+	public void startApp()
+	{
+		String response;
+		Popup p;
+		Display disp = Display.getDisplay(this);
 
-    public void destroyApp(boolean unconditional)
-    {
-    }
+		try
+		{
+			String[] str = Strings.getAllMessages();
 
+			p = new Popup(this, str[Messages.SENDING], false, null);
+			disp.setCurrent(p);
+			response = Sender.send(null, NetworkRequest.OK_MESSAGE);
+                        p = new Popup(this, (response.equals(OK)) ? str[Messages.RECEIVED] : response, true, null);
+                        str = Strings.getAllMessages();
+                        response = Sender.send(null, NetworkRequest.DATA_MESSAGE);
+			p = new Popup(this, (response.equals(OK)) ? str[Messages.RECEIVED] : response, true, null);
+			disp.setCurrent(p);
+                        
+
+		}catch(Exception e)
+		{
+		   //most likely to happen if there is an error in Strings.getAllMessages()
+		   Popup pop = new Popup(this, "Please run configurator first.", true, null); 
+		   disp.setCurrent(pop);
+		}
+	}
+
+	public void pauseApp()
+	{
+	}
+
+	public void destroyApp(boolean unconditional)
+	{
+	}
 }

@@ -12,9 +12,13 @@ xmlns="http://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-ins
       </password>
 	</login>
 	
-	<!--Ok command with plain text message-->
+	<!--Ok command with GPS coordinates-->
 	<safetyline_command>
             <gps>
+                <latitude> 
+                </latitude>
+                <longitude> 
+                </longitude>
             </gps>
 	</safetyline_command>
 
