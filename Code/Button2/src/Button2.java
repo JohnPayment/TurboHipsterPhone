@@ -36,8 +36,13 @@ public class Button2 extends MIDlet
 			p = new Popup(this, str[Messages.SENDING], false, null);
 			disp.setCurrent(p);
 			response = Sender.send(null, NetworkRequest.OK_MESSAGE);
+                        p = new Popup(this, (response.equals(OK)) ? str[Messages.RECEIVED] : response, true, null);
+                        str = Strings.getAllMessages();
+                        response = Sender.send(null, NetworkRequest.DATA_MESSAGE);
 			p = new Popup(this, (response.equals(OK)) ? str[Messages.RECEIVED] : response, true, null);
 			disp.setCurrent(p);
+                        
+
 		}catch(Exception e)
 		{
 		   //most likely to happen if there is an error in Strings.getAllMessages()

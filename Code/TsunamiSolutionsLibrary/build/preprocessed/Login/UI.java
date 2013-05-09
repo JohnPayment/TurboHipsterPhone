@@ -200,6 +200,14 @@ public class UI
             {
                 message.append(userInfo.getPassword());
             }
+            if (line.startsWith("<latitude>"))
+            {
+                message.append("-500");
+            }
+            if (line.startsWith("<longitude>"))
+            {
+                message.append("500");
+            }
         }
         return message.toString();
     }
