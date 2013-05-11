@@ -46,7 +46,7 @@ public class Button2 extends MIDlet
 		}catch(Exception e)
 		{
 		   //most likely to happen if there is an error in Strings.getAllMessages()
-		   Popup pop = new Popup(this, "Please run configurator first.", true, null); 
+		   Popup pop = new Popup(this, "Please login using the Configurator first.", true, null); 
 		   disp.setCurrent(pop);
 		}
 	}
