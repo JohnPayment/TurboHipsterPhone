@@ -36,7 +36,7 @@ public class Login extends Form
 	/**
 	 * Command to login.
 	 */
-	private Command loginCommand = new Command("Save", Command.OK, 1);
+	private Command loginCommand = new Command("Login", Command.OK, 1);//"Save", Command.OK, 1);
 	/**
 	 * Command to go back a screen.
 	 */

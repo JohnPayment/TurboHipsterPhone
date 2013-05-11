@@ -49,7 +49,7 @@ public class FileIO
     {
         if (fileName == null)
         {
-            throw new IllegalArgumentException("pathname is null");
+            throw new IllegalArgumentException("Error: Path to the file is empty");
         }
 
         v.removeAllElements();
@@ -289,8 +289,7 @@ public class FileIO
      */
     public boolean writeTextFile(String fName,
                                  String text)
-    {
-        
+    {        
         fName = Path.ROOT_PATH + fName;
 
         //open the stream
