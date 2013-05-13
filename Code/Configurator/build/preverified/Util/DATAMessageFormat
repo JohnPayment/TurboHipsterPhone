@@ -12,10 +12,14 @@ xmlns="http://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-ins
       </password>
 	</login>
 	
-	<!--Ok command with Wave voice attachment-->
+	<!--Ok command with GPS coordinates-->
 	<safetyline_command>
-		<report_data>
-		</report_data>
+            <gps>
+                <latitude> 
+                </latitude>
+                <longitude> 
+                </longitude>
+            </gps>
 	</safetyline_command>
 
 	<!--Get the current status of the user-->

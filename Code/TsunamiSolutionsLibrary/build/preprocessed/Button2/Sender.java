@@ -2,6 +2,8 @@ package Button2;
 
 import Login.UI;
 import Util.Base64;
+import Util.Messages;
+import Util.Strings;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -24,6 +26,7 @@ public class Sender
      * @param messageFormat Network Message. Example: NetworkRequest.OK_MESSAGE
      * @return Server connection response.
      */
+    static String returnMsg;
     public static String send(String path, int messageFormat)
     {
         HttpConnection connection = null;
@@ -64,6 +67,8 @@ public class Sender
             if (connection != null)
             {
                 line = connection.getResponseMessage();
+                
+                // read in return message
                 char[] c = new char[4000];
                 int index = 0;
                 while(reader.ready())
@@ -74,7 +79,18 @@ public class Sender
                         index += result;
                     }
                 }
+                
+                // check return msg for error
+                String s = new String(c);
+                returnMsg = s;
+                if ( s.indexOf( "error" ) > -1 ) {
+                    throw new SecurityException("bad credentials");
+                }
             }
+        }
+        catch (SecurityException exx)
+        {
+            line = Strings.getMessage(Messages.BAD_CREDENTIALS);
         }
         catch (IOException ex)
         {
@@ -93,8 +109,13 @@ public class Sender
                     line = ex.getMessage();
                 }
             }
+            return line;
         }
-        return line;
+        //return line;
 
+    }
+    
+    public static String getMsg(){
+        return returnMsg;
     }
 }
