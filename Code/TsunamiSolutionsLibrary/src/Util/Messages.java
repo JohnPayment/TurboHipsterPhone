@@ -101,4 +101,7 @@ public class Messages
     
     /** BAD_CREDENTIALS message code. Usage: Strings.getMessage(Messages.BAD_CREDENTIALS); */
     public static final int BAD_CREDENTIALS = 31;
+    
+    /** GPS message code. Usage: Strings.getMessage(Messages.GPS); */
+    public static final int GPS = 32;
 }
