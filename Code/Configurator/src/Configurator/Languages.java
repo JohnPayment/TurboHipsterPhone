@@ -94,10 +94,10 @@ public class Languages extends List
 							StringBuffer buff = new StringBuffer();
 							buff.append("English")
 								.append('\n')
-								.append((m.getSettingScreen().getToggleableState(Settings.MANDOWN) ? "T" : "F"))
+								/*.append((m.getSettingScreen().getToggleableState(Settings.MANDOWN) ? "T" : "F"))
 								.append('\n')
 								.append((m.getSettingScreen().getToggleableState(Settings.FALL) ? "T" : "F"))
-								.append('\n')
+								.append('\n')*/
                                                                 .append((m.getSettingScreen().getToggleableState(Settings.GPS) ? "T" : "F"))
                                                                 .append('\n');
 							f.writeTextFile(Path.SETTINGS_FILENAME, buff.toString());
@@ -109,10 +109,10 @@ public class Languages extends List
 								StringBuffer buff = new StringBuffer();
 								buff.append("French")
 									.append('\n')
-									.append((m.getSettingScreen().getToggleableState(Settings.MANDOWN) ? 'T' : 'F'))
+									/*.append((m.getSettingScreen().getToggleableState(Settings.MANDOWN) ? 'T' : 'F'))
 									.append('\n')
 									.append((m.getSettingScreen().getToggleableState(Settings.FALL) ? 'T' : 'F'))
-									.append('\n')
+									.append('\n')*/
                                                                         .append((m.getSettingScreen().getToggleableState(Settings.GPS) ? "T" : "F"))
                                                                         .append('\n');
 								f.writeTextFile(Path.SETTINGS_FILENAME, buff.toString());

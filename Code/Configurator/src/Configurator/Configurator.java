@@ -22,7 +22,7 @@ public class Configurator extends MIDlet
 	/**
 	 * Number of lines in the Settings file. (language preference, mandown, fall detection)
 	 */
-	public static final int SETTINGS_LINES = 4;
+	public static final int SETTINGS_LINES = 2;
 
 	/**
 	 * the display. (screen of the phone, for more information, please read J2ME
@@ -72,9 +72,10 @@ public class Configurator extends MIDlet
 				if(str != null && str.length == SETTINGS_LINES)
 				{
 					settingStruct.Language = str[0];
-					settingStruct.Mandown = str[1].equals("T");
+					/*settingStruct.Mandown = str[1].equals("T");
 					settingStruct.Fall = str[2].equals("T");
-                                        settingStruct.Gps = str[3].equals("T");
+                                        settingStruct.Gps = str[3].equals("T");*/
+                                        settingStruct.Gps = str[1].equals("T");
 				}
 			}
 		} catch(IOException ex)
@@ -113,12 +114,12 @@ public class Configurator extends MIDlet
 		String[] settingsItemgs = new String[]
 		{
 			
-                    str[Messages.TOGGLE] + " " + str[Messages.MANDOWN] + ": " + str[(settingStruct.Mandown) ?
+                    /*str[Messages.TOGGLE] + " " + str[Messages.MANDOWN] + ": " + str[(settingStruct.Mandown) ?
                                                            Messages.ON :
                                                            Messages.OFF],
                            str[Messages.TOGGLE] + " " + str[Messages.FALL_DETECTION] + ": " + str[(settingStruct.Fall ?
                                                                Messages.ON :
-                                                               Messages.OFF)],
+                                                               Messages.OFF)],*/
                            str[Messages.TOGGLE] + " " + str[Messages.GPS] + ": " + str[(settingStruct.Gps ?
                                                                Messages.ON :
                                                                Messages.OFF)],
@@ -128,8 +129,8 @@ public class Configurator extends MIDlet
 		};
 
 		settings = new Settings(str[Messages.SETTINGS], settingsItemgs, this);
-		settings.setToggleableState(Settings.FALL, settingStruct.Fall);
-		settings.setToggleableState(Settings.MANDOWN, settingStruct.Mandown);
+		/*settings.setToggleableState(Settings.FALL, settingStruct.Fall);
+		settings.setToggleableState(Settings.MANDOWN, settingStruct.Mandown);*/
                 settings.setToggleableState(Settings.GPS, settingStruct.Gps);
 
 		login = new Login(str[Messages.LOGIN], this);
@@ -185,10 +186,10 @@ public class Configurator extends MIDlet
 			String[] lines = f.readFromAbsolutePath(path);
 			buff.append(lines[0])
 					.append("\n")
-					.append((settings.getToggleableState(Settings.MANDOWN) ? "T" : "F"))
+					/*.append((settings.getToggleableState(Settings.MANDOWN) ? "T" : "F"))
 					.append("\n")
 					.append((settings.getToggleableState(Settings.FALL) ? "T" : "F"))
-					.append("\n")
+					.append("\n")*/
                                         .append((settings.getToggleableState(Settings.GPS) ? "T" : "F"))
 					.append("\n");
 			f.writeTextFile(Path.SETTINGS_FILENAME, buff.toString());

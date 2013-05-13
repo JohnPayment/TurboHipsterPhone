@@ -32,24 +32,24 @@ public class Settings extends List
 	 * The index of mandown toggle item; 0
 	 */
 
-	public static final int MANDOWN = 0;
+	//public static final int MANDOWN = 0;
 	/**
 	 * The index of fall detection toggle item; 1
 	 */
-	public static final int FALL = 1;
+	//public static final int FALL = 1;
 	/**
          * The index of GPS toggle item; 2
          */
-        public static final int GPS = 2;
+        public static final int GPS = 0;
         
         /**
 	 * The index of login item; 3
 	 */
-	public static final int LOGIN = 3;
+	public static final int LOGIN = 1;
 	/**
 	 * The index of language item; 4
 	 */
-	public static final int LANG = 4;
+	public static final int LANG = 2;
 	/**
 	 * The MIDlet this screen is a part of.
 	 */
@@ -78,8 +78,8 @@ public class Settings extends List
 	{
 		super(title, List.IMPLICIT, items, null);
 		this.m = m;
-		mandown = new Toggleable(Messages.MANDOWN, false);
-		fall = new Toggleable(Messages.FALL_DETECTION, false);
+		/*mandown = new Toggleable(Messages.MANDOWN, false);
+		fall = new Toggleable(Messages.FALL_DETECTION, false);*/
                 gps = new Toggleable(Messages.GPS, false);
 
 		addCommand(new Command("Exit", Command.EXIT, 1));
@@ -99,10 +99,10 @@ public class Settings extends List
 	{
 		switch (toggleable)
 		{
-			case MANDOWN:
+			/*case MANDOWN:
 				return mandown.state;
 			case FALL:
-				return fall.state;
+				return fall.state;*/
                         case GPS:
                                 return gps.state;
 			default:
@@ -121,12 +121,12 @@ public class Settings extends List
 	{
 		switch (toggleable)
 		{
-			case MANDOWN:
+			/*case MANDOWN:
 				mandown.setState(s);
 				break;
 			case FALL:
 				fall.setState(s);
-				break;
+				break;*/
                         case GPS:
                                 gps.setState(s);
                                 break;
@@ -142,8 +142,8 @@ public class Settings extends List
 	{
 		String str[] = Strings.getAllMessages();
 		setTitle(str[Messages.SETTINGS]);
-		set(MANDOWN, mandown.toString(), null);
-		set(FALL, fall.toString(), null);
+		/*set(MANDOWN, mandown.toString(), null);
+		set(FALL, fall.toString(), null);*/
                 set(GPS, gps.toString(), null);
 		set(LOGIN, str[Messages.LOGIN], null);
 		set(LANG, str[Messages.LANGUAGES], null);
@@ -169,14 +169,14 @@ public class Settings extends List
 						case Settings.LANG:
 							Configurator.moveto(m.getLanguageScreen());
 							break;
-						case Settings.MANDOWN:
+						/*case Settings.MANDOWN:
 							mandown.toggle();
 							l.set(MANDOWN, mandown.toString(), null);
 							break;
 						case Settings.FALL:
 							fall.toggle();
 							l.set(FALL, fall.toString(), null);
-							break;
+							break;*/
                                                 case Settings.GPS:
                                                         gps.toggle();
                                                         l.set(GPS, gps.toString(), null);
