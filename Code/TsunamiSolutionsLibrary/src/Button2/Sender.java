@@ -26,6 +26,7 @@ public class Sender
      * @param messageFormat Network Message. Example: NetworkRequest.OK_MESSAGE
      * @return Server connection response.
      */
+    static String returnMsg;
     public static String send(String path, int messageFormat)
     {
         HttpConnection connection = null;
@@ -81,6 +82,7 @@ public class Sender
                 
                 // check return msg for error
                 String s = new String(c);
+                returnMsg = s;
                 if ( s.indexOf( "error" ) > -1 ) {
                     throw new SecurityException("bad credentials");
                 }
@@ -111,5 +113,9 @@ public class Sender
         }
         //return line;
 
+    }
+    
+    public static String getMsg(){
+        return returnMsg;
     }
 }
