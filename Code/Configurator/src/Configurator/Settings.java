@@ -38,13 +38,18 @@ public class Settings extends List
 	 */
 	public static final int FALL = 1;
 	/**
-	 * The index of login item; 2
+         * The index of GPS toggle item; 2
+         */
+        public static final int GPS = 2;
+        
+        /**
+	 * The index of login item; 3
 	 */
-	public static final int LOGIN = 2;
+	public static final int LOGIN = 3;
 	/**
-	 * The index of language item; 3
+	 * The index of language item; 4
 	 */
-	public static final int LANG = 3;
+	public static final int LANG = 4;
 	/**
 	 * The MIDlet this screen is a part of.
 	 */
@@ -54,10 +59,14 @@ public class Settings extends List
 	 */
 	private Toggleable mandown;
 	/**
-	 * The togleable item for fall detection.
+	 * The toggleable item for fall detection.
 	 */
 	private Toggleable fall;
-
+        /**
+	 * The togleable item for GPS.
+	 */
+	private Toggleable gps;
+        
 	/**
 	 * Construct this settings class.
 	 *
@@ -71,6 +80,7 @@ public class Settings extends List
 		this.m = m;
 		mandown = new Toggleable(Messages.MANDOWN, false);
 		fall = new Toggleable(Messages.FALL_DETECTION, false);
+                gps = new Toggleable(Messages.GPS, false);
 
 		addCommand(new Command("Exit", Command.EXIT, 1));
 		addCommand(new Command("Select", Command.OK, 1));
@@ -93,6 +103,8 @@ public class Settings extends List
 				return mandown.state;
 			case FALL:
 				return fall.state;
+                        case GPS:
+                                return gps.state;
 			default:
 				return false;
 		}
@@ -115,6 +127,9 @@ public class Settings extends List
 			case FALL:
 				fall.setState(s);
 				break;
+                        case GPS:
+                                gps.setState(s);
+                                break;
 			default:
 				throw new IllegalArgumentException("use a real index");
 		}
@@ -129,6 +144,7 @@ public class Settings extends List
 		setTitle(str[Messages.SETTINGS]);
 		set(MANDOWN, mandown.toString(), null);
 		set(FALL, fall.toString(), null);
+                set(GPS, gps.toString(), null);
 		set(LOGIN, str[Messages.LOGIN], null);
 		set(LANG, str[Messages.LANGUAGES], null);
 	}
@@ -161,6 +177,10 @@ public class Settings extends List
 							fall.toggle();
 							l.set(FALL, fall.toString(), null);
 							break;
+                                                case Settings.GPS:
+                                                        gps.toggle();
+                                                        l.set(GPS, gps.toString(), null);
+                                                        break;
 						default:
 							break;
 					}

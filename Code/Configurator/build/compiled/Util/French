@@ -1,31 +1,33 @@
-Le Ok
-Le Error
-Le Company ID:
-Le Password: 
-Le Name: 
-Le Email: 
-Le Success!
-Le Failed!
-Le End monitoring
-Le Sending failed
-Le Sent successfully
-Le Monitoring successfully ended
-Le Monitoring failed to end
-Le Languages
-Le Man-Down
-Le Fall-Detection
-Le Login: 
-Le English
-Le French
-Le Back
-Le Select
-Le On
-Le Off
-Le Toggle
-Le None was set
-Le Exit
-Le Settings
-Le Received
-Le Saving Failed
-Le Sending . . .
-Le Not initialized
+Ok
+Erreur
+ID de Compagnie:
+Mot de passe: 
+Nom d'utilisateur: 
+Courriel: 
+Succes
+Rate!
+Arreter de surveiller
+L'envoi a echoue
+Distribue avec succes
+L'application a termine
+L'application n'a pas termine
+Langues
+de Man-Down
+de Fall-Detection
+Se connecter: 
+Anglais
+Francais
+Retour
+Choix
+Activer
+Desactiver
+L'etat
+Erreur de configuration
+Quitter
+Reglages
+Demander terminé, merci.
+Impossible denregistrer fichier
+Envoi
+Non initialisee
+Combinaison id/mot de passe incorrecte
+GPS

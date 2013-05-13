@@ -2,6 +2,8 @@ package Button2;
 
 import Login.UI;
 import Util.Base64;
+import Util.Messages;
+import Util.Strings;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -64,6 +66,8 @@ public class Sender
             if (connection != null)
             {
                 line = connection.getResponseMessage();
+                
+                // read in return message
                 char[] c = new char[4000];
                 int index = 0;
                 while(reader.ready())
@@ -74,7 +78,17 @@ public class Sender
                         index += result;
                     }
                 }
+                
+                // check return msg for error
+                String s = new String(c);
+                if ( s.indexOf( "error" ) > -1 ) {
+                    throw new SecurityException("bad credentials");
+                }
             }
+        }
+        catch (SecurityException exx)
+        {
+            line = Strings.getMessage(Messages.BAD_CREDENTIALS);
         }
         catch (IOException ex)
         {
@@ -93,8 +107,9 @@ public class Sender
                     line = ex.getMessage();
                 }
             }
+            return line;
         }
-        return line;
+        //return line;
 
     }
 }
