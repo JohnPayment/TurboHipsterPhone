@@ -22,3 +22,5 @@ private.properties
 Icon?
 ehthumbs.db
 Thumbs.db
+/Code/TsunamiSolutionsLibrary/dist/
+/Code/Configurator/dist/
