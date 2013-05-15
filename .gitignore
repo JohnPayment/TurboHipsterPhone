@@ -7,6 +7,10 @@ Code/Button2/build/
 Code/Button3/build/
 Code/Configurator/build/
 Code/TsunamiSolutionsLibrary/build/
+Code/Button2/dist/
+Code/Button3/dist/
+Code/Configurator/dist/
+Code/TsunamiSolutionsLibrary/dist/
 
 # Packages #
 ############
