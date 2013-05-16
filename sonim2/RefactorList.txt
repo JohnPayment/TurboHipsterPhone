@@ -1,7 +1,0 @@
-C - Complete
-T - To be Completed
-F - Can not be done
-
-C - Remove Mandown Mode Toggle
-C - RemoveOther toggle
-T - Add GPS Toggle
