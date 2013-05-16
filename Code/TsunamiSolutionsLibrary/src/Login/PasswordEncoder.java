@@ -25,7 +25,7 @@ public class PasswordEncoder
     {
         if (password == null)
         {
-            throw new IllegalArgumentException("password cannot be null");
+            throw new IllegalArgumentException("password cannot be empty");
         }
 
         StringBuffer encodedString = new StringBuffer();
@@ -65,7 +65,7 @@ public class PasswordEncoder
     {
         if (password == null)
         {
-            throw new IllegalArgumentException("password cannot be null");
+            throw new IllegalArgumentException("password cannot be empty");
         }
 
         StringBuffer originalPassword = new StringBuffer();

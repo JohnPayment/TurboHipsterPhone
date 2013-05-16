@@ -7,6 +7,10 @@ Code/Button2/build/
 Code/Button3/build/
 Code/Configurator/build/
 Code/TsunamiSolutionsLibrary/build/
+Code/Button2/dist/
+Code/Button3/dist/
+Code/Configurator/dist/
+Code/TsunamiSolutionsLibrary/dist/
 
 # Packages #
 ############
@@ -22,4 +26,9 @@ private.properties
 Icon?
 ehthumbs.db
 Thumbs.db
+<<<<<<< HEAD
 /Code/Button2/dist/
+=======
+/Code/TsunamiSolutionsLibrary/dist/
+/Code/Configurator/dist/
+>>>>>>> a8d6b893cf5ba902f9480454824b5d90ddc3e678

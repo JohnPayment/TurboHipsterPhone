@@ -55,7 +55,7 @@ public class Sender
             catch (Exception ex)
             {   //This is hardcoded string because it might fail reading the Language files
                 return "Resource for login information not found. \n" +
-                        "Run Configurator before sending message.";
+                        "Please run the Configurator.";
             }
             finally
             {
