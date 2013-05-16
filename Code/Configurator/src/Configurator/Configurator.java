@@ -66,7 +66,7 @@ public class Configurator extends MIDlet
 			if(str == null || str.length == 0)
 			{
 				f.writeTextFile(Path.SETTINGS_FILENAME,
-								"English\nF\nF\nF\n");
+								"English\nF\n");
 			} else
 			{
 				if(str != null && str.length == SETTINGS_LINES)

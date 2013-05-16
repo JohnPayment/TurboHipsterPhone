@@ -55,24 +55,21 @@ public class Button2 extends MIDlet
                         if(ifOk){
                             int tempMin = c.get(Calendar.MINUTE)+period;
                             int tempHour = c.get(Calendar.HOUR_OF_DAY);
-                            while(tempMin>59){
+                            while(tempMin > 59){
                                 tempHour++;
-                                if(tempMin==60){
-                                    tempMin=0;
+                                if(tempMin == 60){
+                                    tempMin = 0;
                                 }
                                 else{
                                     tempMin -= 60;
                                 }
                             }
-                            if(tempHour>23){
+                            if(tempHour > 23){
                                 tempHour -= 24;
                             }
-                            if(tempMin<10){
-                                time = "Check-in completed.\nPlease check-in again at " + tempHour + ":0" + tempMin;
-                            }
-                            else {
-                                time = "Check-in completed.\nPlease check-in again at " + tempHour + ":" + tempMin;
-                            }
+                            
+                            time = "Check-in completed.\nPlease check-in again at " + tempHour + ((tempMin < 10) ? ":0" : ":") + tempMin;
+                          
                             p = new Popup(this, time, true, null);
                             disp.setCurrent(p);
                         }
@@ -96,13 +93,12 @@ public class Button2 extends MIDlet
             String xmlMsg = Sender.getMsg();
             String open = "&lt;get_next&gt;&lt;command_result&gt;";
             int length = open.length();
-            String msg = xmlMsg;
-            int cmdStart = msg.indexOf(open);
+            int cmdStart = xmlMsg.indexOf(open);
             int timeStart = cmdStart + length;
-            String subStr = msg.substring(timeStart);
+            String subStr = xmlMsg.substring(timeStart);
             int timeEnd = subStr.indexOf("&");
             String time = subStr.substring(0, timeEnd);
             
-            return (int) Math.ceil(Double.parseDouble(time)/60); 
+            return (int) Math.ceil(Double.parseDouble(time) / 60); 
         }
 }
