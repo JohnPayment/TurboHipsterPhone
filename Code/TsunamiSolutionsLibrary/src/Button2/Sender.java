@@ -81,9 +81,7 @@ public class Sender
                 }
                 
                 // check return msg for error
-                String s = new String(c);
-                returnMsg = s;
-                if ( s.indexOf( "error" ) > -1 ) {
+                if (errorInResponse(c)) {
                     throw new SecurityException("bad credentials");
                 }
             }
@@ -113,6 +111,20 @@ public class Sender
         }
         //return line;
 
+    }
+    
+    // @author Aaron Lee
+    // check char array for the word 'error'
+    // if present, returns true
+    private static boolean errorInResponse(char[] c) {
+        
+        String s = new String(c);
+        returnMsg = s;
+        if ( s.indexOf( "error" ) > -1 ) {
+            return true;
+        }
+        
+        return false;
     }
     
     public static String getMsg(){
