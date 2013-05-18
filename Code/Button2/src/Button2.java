@@ -22,7 +22,7 @@ import org.w3c.dom.Document;
  *
  * REVISIONS: 2013-05-18
  *            Luke Tao
- *            Aaron Lee
+ *            Steve Lo
  *            John Payment
  *
  * DESIGNER: Team Cirno
@@ -32,7 +32,6 @@ import org.w3c.dom.Document;
  * NOTES: This is a Java Mobile App intended to connect to the validation server
  *        with pre-stored credentials. It then reports success or failure and
  *        the next check-in time.
- * 
  *******************************************************************************/
 public class Button2 extends MIDlet
 {
