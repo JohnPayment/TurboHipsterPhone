@@ -7,7 +7,7 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.midlet.MIDlet;
 
 /*******************************************************************************
- * CLASS: Button2
+ * CLASS: Button3
  *
  * FUNCTIONS: void startApp()
  *            void pauseApp()
