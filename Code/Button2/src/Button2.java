@@ -149,7 +149,7 @@ public class Button2 extends MIDlet
 	 * 
 	 * DATE: 2013-05-15
 	 * 
-	 * DESIGNER: Team Cirno
+	 * DESIGNER: Steve Lo
 	 * 
 	 * PROGRAMMER: Luke Tao
 	 *             Steve Lo
