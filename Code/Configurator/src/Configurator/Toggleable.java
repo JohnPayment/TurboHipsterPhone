@@ -4,7 +4,7 @@ import Util.Messages;
 import Util.Strings;
 
 /*******************************************************************************
- * CLASS: Configurator
+ * CLASS: Toggleable
  *
  * FUNCTIONS: Toggleable(int msg, boolean state)
  *            void setState(boolean s)

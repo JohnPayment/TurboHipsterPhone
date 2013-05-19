@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.TextField;
 
 /*******************************************************************************
- * CLASS: Languages
+ * CLASS: Login
  *
  * FUNCTIONS: Login(String title, Configurator m)
  *            void updateLanguage()
