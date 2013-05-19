@@ -1,6 +1,5 @@
 package Configurator;
 
-
 import Util.FileIO;
 import Util.Messages;
 import Util.Path;
@@ -10,13 +9,33 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.*;
 
-
-/**
- * This is the interface that will allow the user to change the settings of
- * their phone.
+/*******************************************************************************
+ * CLASS: Configurator
  *
- * @author Team Cirno
- */
+ * FUNCTIONS: Configurator()
+ *            boolean moveto(Displayable d)
+ *            void init()
+ *            void startApp()
+ *            void pauseApp()
+ *            void destroyApp(boolean unconditional)
+ *            Settings getSettingScreen()
+ *            Languages getLanguageScreen()
+ *            Login getLoginScreen()
+ *
+ * DATE: 2013-01-18
+ *
+ * REVISIONS: 2013-05-18
+ *            Aaron Lee
+ *            Luke Tao
+ *            John Payment
+ *
+ * DESIGNER: Team Cirno
+ *
+ * PROGRAMMER: Team Cirno
+ *
+ * NOTES: This is a Java Mobile App intended to allow the user to change the
+ *        operation setings of the Safetyline applications used by their phone.
+ *******************************************************************************/
 public class Configurator extends MIDlet
 {
 	/**
@@ -50,11 +69,27 @@ public class Configurator extends MIDlet
 	 */
 	private SettingStruct settingStruct;
 
-	/**
-	 * Constructs a configurator.
-	 * Reads from a file to set up the Settings (Language, mandown, fall detection)
-	 * If the file doesn't exist, it will load English as preferred language, mandown as off and fall detection as off.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: Configurator
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * REVISIONS: 2013-05-15
+	 *            Luke Tao
+	 *            Aaron Lee
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: Configurator()
+	 * 
+	 * NOTES: Constructor for Configurator Class. It reads from a file to set up
+	 *        the Settings (Language, mandown, fall detection, GPS)
+	 * 
+	 *        If the file doesn't exist, it will load English as preferred 
+	 *        language, mandown as off and fall detection as off.
+	 ***************************************************************************/
 	public Configurator()
 	{
 		settingStruct = new SettingStruct();
@@ -65,8 +100,7 @@ public class Configurator extends MIDlet
 			String[] str = f.readFromAbsolutePath(path);
 			if(str == null || str.length == 0)
 			{
-				f.writeTextFile(Path.SETTINGS_FILENAME,
-								"English\nF\n");
+				f.writeTextFile(Path.SETTINGS_FILENAME, "English\nF\n");
 			} else
 			{
 				if(str != null && str.length == SETTINGS_LINES)
@@ -74,8 +108,7 @@ public class Configurator extends MIDlet
 					settingStruct.Language = str[0];
 					/*settingStruct.Mandown = str[1].equals("T");
 					settingStruct.Fall = str[2].equals("T");
-                                        settingStruct.Gps = str[3].equals("T");*/
-                                        settingStruct.Gps = str[1].equals("T");
+					settingStruct.Gps = str[3].equals("T");*/
 				}
 			}
 		} catch(IOException ex)
@@ -84,27 +117,53 @@ public class Configurator extends MIDlet
 		}
 	}
 
-	/**
-	 * Method to cause the screen to change to one of the screens.
-	 *
-	 * @param d the screen you want to change to
-	 *
-	 * @return true if successfully changed screens, false otherwise
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: moveto
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: boolean moveto(Displayable d)
+	 *            Displayable d - the screen you want to change to
+	 * 
+	 * RETURN: true if successfully changed screens; otherwise false
+	 * 
+	 * NOTES: Changes the displayed screen
+	 ***************************************************************************/
 	public static boolean moveto(Displayable d)
 	{
-		if(d != null)
+		if (d != null)
 		{
 			disp.setCurrent(d);
 			return true;
 		}
+		
 		return false;
 	}
 
-	/**
-	 * initialization preformed after this MIDlet has been constructed.
-	 * initializes the display and screens.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: init
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * REVISIONS: 2013-05-15
+	 *            Luke Tao
+	 *            Aaron Lee
+	 *            John Payment
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: boolean init()
+	 * 
+	 * RETURN: void
+	 * 
+	 * NOTES: Initializes the display and screens.
+	 ***************************************************************************/
 	private void init()
 	{
 		disp = Display.getDisplay(this);
@@ -113,44 +172,59 @@ public class Configurator extends MIDlet
 
 		String[] settingsItemgs = new String[]
 		{
-			
-                    /*str[Messages.TOGGLE] + " " + str[Messages.MANDOWN] + ": " + str[(settingStruct.Mandown) ?
-                                                           Messages.ON :
-                                                           Messages.OFF],
-                           str[Messages.TOGGLE] + " " + str[Messages.FALL_DETECTION] + ": " + str[(settingStruct.Fall ?
-                                                               Messages.ON :
-                                                               Messages.OFF)],*/
-                           str[Messages.TOGGLE] + " " + str[Messages.GPS] + ": " + str[(settingStruct.Gps ?
-                                                               Messages.ON :
-                                                               Messages.OFF)],
-
+			/*str[Messages.TOGGLE] + " " + str[Messages.MANDOWN] + ": " + str[(settingStruct.Mandown) ?
+				Messages.ON :
+				Messages.OFF],
+			str[Messages.TOGGLE] + " " + str[Messages.FALL_DETECTION] + ": " + str[(settingStruct.Fall ?
+				Messages.ON :
+				Messages.OFF)],
+			str[Messages.TOGGLE] + " " + str[Messages.GPS] + ": " + str[(settingStruct.Gps ?
+				Messages.ON :
+				Messages.OFF)],*/
 			str[Messages.LOGIN],
 			str[Messages.LANGUAGES]
 		};
 
 		settings = new Settings(str[Messages.SETTINGS], settingsItemgs, this);
 		/*settings.setToggleableState(Settings.FALL, settingStruct.Fall);
-		settings.setToggleableState(Settings.MANDOWN, settingStruct.Mandown);*/
-                settings.setToggleableState(Settings.GPS, settingStruct.Gps);
+		settings.setToggleableState(Settings.MANDOWN, settingStruct.Mandown);
+		settings.setToggleableState(Settings.GPS, settingStruct.Gps);*/
 
 		login = new Login(str[Messages.LOGIN], this);
 
 		languages = new Languages(str[Messages.LANGUAGES], languageItems, this);
 	}
 
-	/**
-	 * Main entry point of the MIDlet. starts the display as the settings
-	 * screen.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: startApp
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: void startApp()
+	 * 
+	 * NOTES: Called when the app is launched.
+	 ***************************************************************************/
 	public void startApp()
 	{
 		init();
 		disp.setCurrent(settings);
 	}
 
-	/**
-	 * When this MIDlet is moved to the background, it will destroy itself.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: pauseApp
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: void pauseApp()
+	 * 
+	 * NOTES: Default function inherited by the parent class.
+	 ***************************************************************************/
 	public void pauseApp()
 	{
 		notifyDestroyed();
@@ -164,18 +238,32 @@ public class Configurator extends MIDlet
 		public String Language;
 		public boolean Mandown;
 		public boolean Fall;
-                public boolean Gps;
+		public boolean Gps;
 		public SettingStruct()
 		{
 			Language = "English";
 		}
 	}
 
-	/**
-	 * Cleanup before destruction.
-	 *
-	 * @param unconditional if the destruction must happen or not
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: destroyApp
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * REVISIONS: 2013-05-18
+	 *            Aaron Lee
+	 *            Luke Tao
+	 *            John Payment
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: void destroyApp(boolean unconditional)
+	 *            boolean unconditional - if the destruction must happen or not
+	 * 
+	 * NOTES: 
+	 ***************************************************************************/
 	public void destroyApp(boolean unconditional)
 	{
 		try
@@ -184,44 +272,79 @@ public class Configurator extends MIDlet
 			StringBuffer buff = new StringBuffer();
 			FileIO f = new FileIO();
 			String[] lines = f.readFromAbsolutePath(path);
+			
 			buff.append(lines[0])
-					.append("\n")
-					/*.append((settings.getToggleableState(Settings.MANDOWN) ? "T" : "F"))
-					.append("\n")
-					.append((settings.getToggleableState(Settings.FALL) ? "T" : "F"))
-					.append("\n")*/
-                                        .append((settings.getToggleableState(Settings.GPS) ? "T" : "F"))
-					.append("\n");
+				.append("\n")
+				/*.append((settings.getToggleableState(Settings.MANDOWN) ? "T" : "F"))
+				.append("\n")
+				.append((settings.getToggleableState(Settings.FALL) ? "T" : "F"))
+				.append("\n")
+				.append((settings.getToggleableState(Settings.GPS) ? "T" : "F"))*/
+				.append("\n");
+			
 			f.writeTextFile(Path.SETTINGS_FILENAME, buff.toString());
 			notifyDestroyed();
 		} catch(IOException ex)
 		{
 			notifyDestroyed();
 		}
-
-
 	}
 
-	/**
-	 * Settings screen getter.
-	 *
-	 * @return settings screen.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: getSettingScreen
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: Settings getSettingScreen()
+	 * 
+	 * RETURN: the settings object of the screen
+	 * 
+	 * NOTES: Getting function for the screen's settings
+	 ***************************************************************************/
 	public Settings getSettingScreen()
 	{
 		return settings;
 	}
 
-	/**
-	 * Languages screen getter.
-	 *
-	 * @return language screen.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: getLanguageScreen
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: Languages getLanguageScreen()
+	 * 
+	 * RETURN: the language object of the screen
+	 * 
+	 * NOTES: Getting function for the screen's language
+	 ***************************************************************************/
 	public Languages getLanguageScreen()
 	{
 		return languages;
 	}
 
+	/*************************************************************************** 
+	 * FUNCTION: getLoginScreen
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: Login getLoginScreen()
+	 * 
+	 * RETURN: the Login object of the screen
+	 * 
+	 * NOTES: Getting function for the login screen
+	 ***************************************************************************/
 	/**
 	 * Login screen getter.
 	 *

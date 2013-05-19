@@ -10,6 +10,24 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.List;
 
+/*******************************************************************************
+ * CLASS: Languages
+ *
+ * FUNCTIONS: Languages(String title, String[] items, Configurator m)
+ *
+ * DATE: 2013-01-18
+ * 
+ * REVISIONS: 2013-05-18
+ *            Aaron Lee
+ *            Luke Tao
+ *            John Payment
+ *
+ * DESIGNER: Team Cirno
+ *
+ * PROGRAMMER: Team Cirno
+ *
+ * NOTES: The screen display for the language submenu
+ *******************************************************************************/
 /**
  * Screen for the Languages where you can switch preferred language.
  * @author Team Cirno
@@ -31,13 +49,22 @@ public class Languages extends List
 	 */
 	private Configurator m;
 
-	/**
-	 * Construct the language screen
-	 *
-	 * @param title the title of the screen
-	 * @param items the menu items of the screen
-	 * @param m     the Configurator this screen is part of
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: Languages
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: Languages(String title, String[] items, Configurator m)
+	 *            String title - the title of the screen
+	 *            String[] items - the menu items of the screen
+	 *            Configurator m - the Configurator this screen is part of
+	 * 
+	 * NOTES: Constructor for the language class
+	 ***************************************************************************/
 	public Languages(String title, String[] items, Configurator m)
 	{
 		super(title, List.IMPLICIT, items, null);
@@ -97,9 +124,9 @@ public class Languages extends List
 								/*.append((m.getSettingScreen().getToggleableState(Settings.MANDOWN) ? "T" : "F"))
 								.append('\n')
 								.append((m.getSettingScreen().getToggleableState(Settings.FALL) ? "T" : "F"))
-								.append('\n')*/
-                                                                .append((m.getSettingScreen().getToggleableState(Settings.GPS) ? "T" : "F"))
-                                                                .append('\n');
+								.append('\n')
+								.append((m.getSettingScreen().getToggleableState(Settings.GPS) ? "T" : "F"))*/
+								.append('\n');
 							f.writeTextFile(Path.SETTINGS_FILENAME, buff.toString());
 							updateLanguage();
 						} else
@@ -112,9 +139,9 @@ public class Languages extends List
 									/*.append((m.getSettingScreen().getToggleableState(Settings.MANDOWN) ? 'T' : 'F'))
 									.append('\n')
 									.append((m.getSettingScreen().getToggleableState(Settings.FALL) ? 'T' : 'F'))
-									.append('\n')*/
-                                                                        .append((m.getSettingScreen().getToggleableState(Settings.GPS) ? "T" : "F"))
-                                                                        .append('\n');
+									.append('\n')
+									.append((m.getSettingScreen().getToggleableState(Settings.GPS) ? "T" : "F"))*/
+									.append('\n');
 								f.writeTextFile(Path.SETTINGS_FILENAME, buff.toString());
 								updateLanguage();
 							}

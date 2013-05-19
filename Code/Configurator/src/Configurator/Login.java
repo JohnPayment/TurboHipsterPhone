@@ -17,12 +17,20 @@ import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.TextField;
 
-/**
- * Reads user input and store them inside a UI object.
+/*******************************************************************************
+ * CLASS: Languages
  *
- * @author Team Cirno
- * @version 1.0
- */
+ * FUNCTIONS: Login(String title, Configurator m)
+ *            void updateLanguage()
+ *
+ * DATE: 2013-01-18
+ *
+ * DESIGNER: Team Cirno
+ *
+ * PROGRAMMER: Team Cirno
+ *
+ * NOTES: The screen display for the login submenu and updates login information
+ *******************************************************************************/
 public class Login extends Form
 {
 	/**
@@ -74,12 +82,21 @@ public class Login extends Form
 	 */
 	private Popup pop;
 
-	/**
-	 * Construct login screen
-	 *
-	 * @param title title of the screen
-	 * @param m the configurator this screen is part of
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: Login
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: Login(String title, Configurator m)
+	 *            String title - the title of the screen
+	 *            Configurator m - the Configurator this screen is part of
+	 * 
+	 * NOTES: Constructor for the Login class
+	 ***************************************************************************/
 	public Login(String title, Configurator m)
 	{
 		super(title);
@@ -103,9 +120,21 @@ public class Login extends Form
 		setCommandListener(new LoginListener());
 	}
 
-	/**
-	 * Change the display to french.
-	 */
+	/*************************************************************************** 
+	 * FUNCTION: updateLanguage
+	 * 
+	 * DATE: 2013-01-30
+	 * 
+	 * DESIGNER: Team Cirno
+	 * 
+	 * PROGRAMMER: Team Cirno
+	 * 
+	 * INTERFACE: void updateLanguage()
+	 * 
+	 * RETURN: void
+	 * 
+	 * NOTES: Updates the displayed language
+	 ***************************************************************************/
 	public void updateLanguage()
 	{
 		String str[] = Strings.getAllMessages();
@@ -137,7 +166,7 @@ public class Login extends Form
 
 				userInfo = new UI(username, passw, compID);
 				//write information to text file.
-				if (!f.writeTextFile(Path.LOGIN_FILENAME, userInfo.toString()))
+				if(!f.writeTextFile(Path.LOGIN_FILENAME, userInfo.toString()))
 				{
 					//if failed popup a message
 					pop = new Popup(m, Strings.getMessage(Messages.SAVING_FAILED), true, m.getLoginScreen());
@@ -147,16 +176,18 @@ public class Login extends Form
 					//if successfully saved, send message to saftyline servers.
 					String response = Sender.send(null, NetworkRequest.OK_MESSAGE);
 					//then popup message with result.
-                                        pop = new Popup(m, (response.equals("OK"))
+					pop = new Popup(m, (response.equals("OK"))
 						? Strings.getMessage(Messages.RECEIVED)
 						: response, true, m.getLoginScreen());
-					
+
 					dis.setCurrent(pop);
 				}
-			} else if (c.equals(cancelCommand)) //if cancel button is clicked
+			//if cancel button is clicked
+			} else if(c.equals(cancelCommand))
 			{
 				Configurator.moveto(m.getSettingScreen());
-			} else if (c.equals(readCommand)) //if read info button is clicked
+			//if read info button is clicked
+			} else if(c.equals(readCommand))
 			{
 				try
 				{
