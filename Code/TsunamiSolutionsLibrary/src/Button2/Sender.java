@@ -22,6 +22,9 @@ import javax.microedition.io.HttpConnection;
  * REFACTORS: 2013-05-14
  *            Aaron Lee
  *
+ * REVISIONS: 2013-05-13
+ *            Steve Lo
+ * 
  * DESIGNER: Team Cirno
  *
  * PROGRAMMER: Team Cirno
@@ -41,6 +44,9 @@ public class Sender
 	 * 
 	 * PROGRAMMER: Team Cirno
 	 * 
+         * REVISIONS: 2013-05-13
+         *            Steve Lo
+         * 
 	 * INTERFACE: String send(String path, int messageFormat)
 	 *            String path - path of the MessageFormat files. If this was null, it uses the default location
 	 *            int messageFormat - Network Message. Example: NetworkRequest.OK_MESSAGE
@@ -169,11 +175,11 @@ public class Sender
 	/*************************************************************************** 
 	 * FUNCTION: getMsg
 	 * 
-	 * DATE: 2013-01-30
+	 * DATE: 2013-05-13
 	 * 
-	 * DESIGNER: Team Cirno
+	 * DESIGNER: Steve Lo
 	 * 
-	 * PROGRAMMER: Team Cirno
+	 * PROGRAMMER: Steve Lo
 	 * 
 	 * INTERFACE: String getMsg()
 	 * 

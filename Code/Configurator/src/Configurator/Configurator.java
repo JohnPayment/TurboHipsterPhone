@@ -26,6 +26,7 @@ import javax.microedition.midlet.*;
  *
  * REVISIONS: 2013-05-18
  *            Aaron Lee
+ *            Steve Lo
  *            Luke Tao
  *            John Payment
  *
