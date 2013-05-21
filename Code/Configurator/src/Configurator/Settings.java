@@ -61,14 +61,14 @@ public class Settings extends List
 	//public static final int GPS = 0;
 
 	/**
-	 * The index of login item; 3
+	 * The index of login item; 0
 	 */
-	public static final int LOGIN = 1;
+	public static final int LOGIN = 0;
 	
 	/**
-	 * The index of language item; 4
+	 * The index of language item; 1
 	 */
-	public static final int LANG = 2;
+	public static final int LANG = 1;
 	
 	/**
 	 * The MIDlet this screen is a part of.

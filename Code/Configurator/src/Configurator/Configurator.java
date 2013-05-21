@@ -182,8 +182,9 @@ public class Configurator extends MIDlet
 			str[Messages.TOGGLE] + " " + str[Messages.GPS] + ": " + str[(settingStruct.Gps ?
 				Messages.ON :
 				Messages.OFF)],*/
-			str[Messages.LOGIN],
-			str[Messages.LANGUAGES]
+                                
+                    str[Messages.LOGIN],
+                    str[Messages.LANGUAGES]
 		};
 
 		settings = new Settings(str[Messages.SETTINGS], settingsItemgs, this);
