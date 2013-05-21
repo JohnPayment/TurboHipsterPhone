@@ -13,9 +13,9 @@ import javax.microedition.io.HttpConnection;
 /*******************************************************************************
  * CLASS: Sender
  *
- * FUNCTIONS: Toggleable(int msg, boolean state)
- *            void setState(boolean s)
- *            void toggle()
+ * FUNCTIONS: String send(String path, int messageFormat)
+ *            boolean errorInResponse(char[] c)
+ *            String getMsg()
  *
  * DATE: 2013-01-18
  * 
