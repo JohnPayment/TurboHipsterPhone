@@ -9,6 +9,7 @@ import Util.Strings;
  * FUNCTIONS: Toggleable(int msg, boolean state)
  *            void setState(boolean s)
  *            void toggle()
+ *            String toString()
  *
  * DATE: 2013-01-18
  *

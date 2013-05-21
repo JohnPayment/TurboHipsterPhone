@@ -10,6 +10,7 @@ import java.io.IOException;
  *
  * FUNCTIONS: UI(final String name, final String pass, final int companyId)
  *            String getUserName()
+ *            void setUserName(String userName)
  *            setUserName(String userName)
  *            String getPassword()
  *            String getUnDecodedPassword()
@@ -283,6 +284,9 @@ public class UI
 	 * 
 	 * DATE: 2013-01-30
 	 * 
+         * REVISIONS: 2013-05-18
+	 *            Luke Tao
+         * 
 	 * DESIGNER: Team Cirno
 	 * 
 	 * PROGRAMMER: Team Cirno

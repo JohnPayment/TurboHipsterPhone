@@ -9,6 +9,7 @@ package Util;
  * 
  * REFACTORS: 2013-05-18
  *            Steve Lo
+ *            Luke Tao
  *
  * DESIGNER: Team Cirno
  *
