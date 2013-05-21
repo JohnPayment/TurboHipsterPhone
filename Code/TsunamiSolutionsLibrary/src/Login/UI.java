@@ -11,14 +11,14 @@ import java.io.IOException;
  * FUNCTIONS: UI(final String name, final String pass, final int companyId)
  *            String getUserName()
  *            void setUserName(String userName)
- *            setUserName(String userName)
  *            String getPassword()
  *            String getUnDecodedPassword()
  *            void setPassword(String password)
  *            int getCompanyId()
- *            UI getUIFromFile()
- *            String getXMLMessage(final String path, final String msg, final int messageFormat)
  *            void setCompanyId(int companyId)
+ *            UI getUIFromFile()
+ *            UI getUIFromFile(final String path)
+ *            String getXMLMessage(final String path, final String msg, final int messageFormat)
  *            String toString()
  *
  * DATE: 2013-01-18
